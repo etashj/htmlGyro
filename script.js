@@ -1,3 +1,15 @@
+function requestOrientationPermission(){
+    DeviceOrientationEvent.requestPermission()
+    .then(response => {
+        if (!(response == 'granted')) {
+            alert("Not compatible with this device. Open on a mobile device. ");
+        }
+    })
+    .catch(console.error)
+}
+
+requestOrientationPermission();
+
 alert("This website works best on mobile devices with gyro (otherwise use arrow keys). Press the request orientation permission button to allow gyro. ")
 
 window.mobileCheck = function() {
