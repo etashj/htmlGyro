@@ -11,6 +11,7 @@ function requestOrientationPermission(){
 requestOrientationPermission();
 
 alert("This website works best on mobile devices with gyro (otherwise use arrow keys). Press the request orientation permission button to allow gyro. ")
+alert("Press REQUEST ORIENTATION PERMISSION")
 
 window.mobileCheck = function() {
     let check = false;
