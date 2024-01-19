@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Gyro Testing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        function requestOrientationPermission(){
+            DeviceOrientationEvent.requestPermission()
+            .then(response => {
+                if (!(response == 'granted')) {
+                    alert("Not compatible with this device. Open on a mobile device. ");
+                }
+            })
+            .catch(console.error)
+        }
+    </script>
+<div id="circ">
+        <img id="m" src = "circle.svg" alt="My Happy SVG"/>
+    </div>
+    <div id="text">
+    <button onclick='requestOrientationPermission();'>Request orientation permission</button>
+    <button onclick='calibrate();'>calibrate</button>
+    <button onclick='location.reload();'>reset</button>
+    <br><br>
+
+    Alpha <span id="alpha">0</span> <br>
+    Beta <span id="beta">0</span> <br>
+    Gamma <span id="gamma">0</span> <br>
+    <br>
+    xacc <span id="xacc">0</span> <br>
+    yacc <span id="yacc">0</span> <br>
+    <br>
+    xvel <span id="xvel">0</span> <br>
+    yvel <span id="yvel">0</span> <br>
+
+    <br>
+    muk <span id="muk">0</span> <br>
+    mus <span id="mus">0</span> <br>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
