@@ -1,4 +1,4 @@
-alert("This website works best on mobile devices with gyro. Press the request orientation permission button to allow gyro. ")
+alert("This website works best on mobile devices with gyro (otherwise use arrow keys). Press the request orientation permission button to allow gyro. ")
 
 window.mobileCheck = function() {
     let check = false;
