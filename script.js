@@ -31,8 +31,8 @@ window.addEventListener("orientationchange", function() {
 
 const g = -9.81;
 const mass = 2.5; 
-const muk = 0.15; 
-const mus = 0.04; 
+const muk = 0.002; 
+const mus = 0.1; 
 const collision_eff = 0.90; 
 const arrowInc = 5; 
 
@@ -87,23 +87,23 @@ function updatePosition() {
 
     //if ((Math.floor(xvel) != 0) || (Math.abs(xacc) > (mus*g))){ 
     if (Math.abs(xvel)>0){
-        let kfric = muk*g;  
+        let kfric = muk*Math.cos((gamma-baselineGamma)*Math.PI/180);
         if (xvel<0) {kfric*=-1;}
 
         xvel += (xacc + kfric) * 3/200; 
-    } else if (Math.abs(xacc) > Math.abs(mus*g)){
-        let kfric = muk*g;  
+    } else if (Math.abs(xacc) > Math.abs(mus*Math.cos((gamma-baselineGamma)*Math.PI/180))){
+        let kfric = muk*Math.cos((gamma-baselineGamma)*Math.PI/180);  
         if (xvel<0) {kfric*=-1;}
 
         xvel += (xacc + kfric) * 3/200; 
     }
 
     if (Math.abs(yvel)>0){ 
-        let kfric = muk*g;  
+        let kfric = muk*Math.cos((beta-baselineBeta)*Math.PI/180);
         if (yvel<0) {kfric*=-1;}
         yvel += (yacc + kfric) * 3/200; 
-    } else if (Math.abs(yacc) > Math.abs(mus*g)) {
-        let kfric = muk*g;  
+    } else if (Math.abs(yacc) > Math.abs(mus*Math.cos((beta-baselineBeta)*Math.PI/180))) {
+        let kfric = muk*Math.cos((beta-baselineBeta)*Math.PI/180);
         if (yvel<0) {kfric*=-1;}
         yvel += (yacc + kfric) * 3/200; s
     }
